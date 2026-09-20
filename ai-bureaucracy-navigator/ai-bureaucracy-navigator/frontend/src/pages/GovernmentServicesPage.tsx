@@ -96,7 +96,7 @@ export function GovernmentServicesPage() {
         <Card padded={false} className="overflow-hidden border border-line shadow-xs">
           <div className="border-b border-line bg-surface px-6 py-5 text-center">
             <h2 className="font-display text-2xl font-bold tracking-tight text-ink">Government Portal Links</h2>
-            <p className="mt-1 text-sm text-ink-soft">Official government portals for the AI Bureaucracy Navigator project.</p>
+            <p className="mt-1 text-sm text-ink-soft">Official government portals available on CivicFlow.</p>
           </div>
 
           <div className="overflow-x-auto">

@@ -28,5 +28,5 @@ app.use('/api/chat', chatRouter)
 app.use(errorHandler)
 
 app.listen(PORT, () => {
-  console.log(`AI Bureaucracy Navigator API listening on http://localhost:${PORT}`)
+  console.log(`CivicFlow API listening on http://localhost:${PORT}`)
 })

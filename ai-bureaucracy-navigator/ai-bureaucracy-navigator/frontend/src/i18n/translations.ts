@@ -10,6 +10,7 @@ export const translations = {
   nav_schemes: { en: 'Schemes', ta: 'திட்டங்கள்', hi: 'सरकारी योजनाएं' },
   nav_knowledge: { en: 'Knowledge Hub', ta: 'அறிவு மையம்', hi: 'ज्ञान केंद्र' },
   nav_profile: { en: 'Profile & Settings', ta: 'சுயவிவரம் & அமைப்புகள்', hi: 'प्रोफ़ाइल और सेटिंग्स' },
+  nav_notifications: { en: 'Notifications', ta: 'அறிவிப்புகள்', hi: 'सूचनाएं' },
   nav_help: { en: 'Help & Guidance', ta: 'உதவி & வழிகாட்டுதல்', hi: 'सहायता और मार्गदर्शन' },
 
   // Common
@@ -31,9 +32,9 @@ export const translations = {
   // Dashboard
   hello: { en: 'Hello', ta: 'வணக்கம்', hi: 'नमस्ते' },
   assistant_intro: {
-    en: 'I\u2019m your AI Bureaucracy Assistant. How can I help you today?',
-    ta: 'நான் உங்கள் AI அரசுசார் உதவியாளர். இன்று நான் எப்படி உதவலாம்?',
-    hi: 'मैं आपका एआई सरकारी प्रक्रिया सहायक हूँ। आज मैं आपकी कैसे मदद कर सकता हूँ?',
+    en: 'I\u2019m your CivicFlow AI Assistant. How can I help you today?',
+    ta: 'நான் உங்கள் CivicFlow AI அரசுசார் உதவியாளர். இன்று நான் எப்படி உதவலாம்?',
+    hi: 'मैं आपका CivicFlow एआई सहायक हूँ। आज मैं आपकी कैसे मदद कर सकता हूँ?',
   },
   ai_guidance_disclaimer: {
     en: 'AI Guidance, not Official Government Action — this app helps you prepare and understand; it does not submit applications on your behalf.',

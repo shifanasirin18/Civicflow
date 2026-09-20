@@ -1,4 +1,4 @@
-# AI Bureaucracy Navigator
+# CivicFlow — AI Bureaucracy Navigator
 
 Guides people through government/public-service procedures — not just a link
 to a portal, but eligibility, required documents, a personalized roadmap,

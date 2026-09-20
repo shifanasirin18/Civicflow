@@ -24,7 +24,7 @@ export function HelpPage() {
     <div className="mx-auto max-w-2xl space-y-6">
       <div>
         <h1 className="font-display text-xl font-bold text-ink">Help & Guidance</h1>
-        <p className="text-sm text-ink-soft">Common questions about how the Navigator works.</p>
+        <p className="text-sm text-ink-soft">Common questions about how CivicFlow works.</p>
       </div>
       <Card>
         <CardHeader title="Frequently asked questions" />

@@ -1,8 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Sparkles } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 import { Button } from '@/components/ui/Button'
+import { CivicFlowLogo } from '@/components/ui/CivicFlowLogo'
 
 export function LoginPage() {
   const { login } = useAuth()
@@ -20,13 +20,19 @@ export function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-canvas px-4">
-      <div className="w-full max-w-sm rounded-3xl border border-line bg-surface p-8 shadow-sm">
-        <div className="mb-6 flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-teal-400 text-white">
-            <Sparkles size={18} />
-          </span>
-          <span className="font-display text-sm font-bold text-ink">AI Bureaucracy Navigator</span>
+    <div className="relative flex min-h-screen items-center justify-center overflow-x-hidden px-4">
+      {/* Background Image with subtle blur */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-100 blur-[2px] scale-105"
+        style={{ backgroundImage: "url('/landing-bg.jpeg')" }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 w-full max-w-sm rounded-3xl border border-white/80 bg-surface/90 backdrop-blur-xl p-8 shadow-2xl">
+        <div className="mb-6">
+          <Link to="/" className="focus-ring inline-block rounded-xl">
+            <CivicFlowLogo size="md" />
+          </Link>
         </div>
         <h1 className="mb-1 font-display text-xl font-bold text-ink">Welcome back</h1>
         <p className="mb-6 text-sm text-ink-soft">Log in to continue your roadmap.</p>
@@ -40,7 +46,7 @@ export function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="focus-ring w-full rounded-xl border border-line bg-canvas px-3 py-2.5 text-sm"
+              className="focus-ring w-full rounded-xl border border-line/80 bg-white/90 px-3 py-2.5 text-sm shadow-2xs focus:bg-white transition-colors"
             />
           </div>
           <div>
@@ -51,10 +57,10 @@ export function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="focus-ring w-full rounded-xl border border-line bg-canvas px-3 py-2.5 text-sm"
+              className="focus-ring w-full rounded-xl border border-line/80 bg-white/90 px-3 py-2.5 text-sm shadow-2xs focus:bg-white transition-colors"
             />
           </div>
-          <Button type="submit" disabled={loading} className="w-full">
+          <Button type="submit" disabled={loading} className="w-full mt-2">
             {loading ? 'Signing in…' : 'Log In'}
           </Button>
         </form>
@@ -64,7 +70,7 @@ export function LoginPage() {
         </p>
         <p className="mt-3 text-center text-sm text-ink-soft">
           New here?{' '}
-          <Link to="/register" className="font-medium text-brand-600">
+          <Link to="/register" className="font-semibold text-brand-600 hover:underline">
             Create an account
           </Link>
         </p>
