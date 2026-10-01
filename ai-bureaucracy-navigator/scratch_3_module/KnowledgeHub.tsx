@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { articles } from "../data/seedData";
-import { KnowledgeArticle, NavigatorActions } from "../types/government";
+import { articles } from "./seedData";
+import { KnowledgeArticle, NavigatorActions } from "./government";
 
 type Props = NavigatorActions & { initialArticleId?: string; onArticleChange?: (article: KnowledgeArticle) => void };
 const categories = ["Documents", "Government Services", "Business", "Property", "Education", "Tax & Finance", "Family & Life Events", "Transport", "Government Schemes", "Certificates", "Employment"];

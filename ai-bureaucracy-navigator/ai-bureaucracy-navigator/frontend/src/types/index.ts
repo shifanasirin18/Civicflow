@@ -86,10 +86,21 @@ export interface ChatMessage {
   timestamp: string
 }
 
+export interface VerificationItem {
+  label: string
+  verified: boolean
+  docName?: string
+  docData?: string
+  docSize?: string
+  uploadedAt?: string
+  docNumber?: string
+}
+
 export interface User {
   id: string
   name: string
   email: string
   profileCompletion: number
-  verifications: { label: string; verified: boolean }[]
+  verifications: VerificationItem[]
 }
+

@@ -1,4 +1,4 @@
-import { GovernmentService, KnowledgeArticle, LifeEvent, Scheme } from "../types/government";
+import { GovernmentService, KnowledgeArticle, LifeEvent, Scheme } from "./government";
 
 const birthRegistration: GovernmentService = {
   id: "birth-registration",

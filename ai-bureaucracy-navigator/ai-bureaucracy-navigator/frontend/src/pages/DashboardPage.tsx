@@ -237,9 +237,20 @@ export function DashboardPage() {
               </div>
               <div className="space-y-2">
                 {user.verifications.map((v) => (
-                  <div key={v.label} className="flex items-center gap-2 text-sm">
-                    <BadgeCheck size={16} className={v.verified ? 'text-good-500' : 'text-line'} />
-                    <span className={v.verified ? 'text-ink' : 'text-ink-soft'}>{v.label}</span>
+                  <div key={v.label} className="flex items-center justify-between gap-2 text-sm">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <BadgeCheck size={16} className={v.verified ? 'text-good-500 shrink-0' : 'text-line shrink-0'} />
+                      <span className={`truncate ${v.verified ? 'text-ink font-medium' : 'text-ink-soft'}`}>{v.label}</span>
+                    </div>
+                    {v.verified ? (
+                      <span className="text-[11px] font-semibold text-good-700 bg-good-50 px-2 py-0.5 rounded border border-good-200 shrink-0">
+                        Verified
+                      </span>
+                    ) : (
+                      <Link to="/app/profile" className="text-xs font-semibold text-brand-600 hover:text-brand-700 shrink-0">
+                        Add
+                      </Link>
+                    )}
                   </div>
                 ))}
               </div>

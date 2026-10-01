@@ -7,6 +7,12 @@ interface AuthContextValue {
   login: (email: string, _password: string) => Promise<void>
   register: (name: string, email: string, _password: string) => Promise<void>
   logout: () => void
+  updateVerification: (
+    label: string,
+    verified: boolean,
+    docDetails?: { docName?: string; docData?: string; docSize?: string; uploadedAt?: string; docNumber?: string }
+  ) => void
+  updateUser: (updatedUser: Partial<User>) => void
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null)
@@ -22,7 +28,18 @@ const STORAGE_KEY = 'abn_user'
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(() => {
     const raw = localStorage.getItem(STORAGE_KEY)
-    return raw ? (JSON.parse(raw) as User) : null
+    if (!raw) return null
+    try {
+      const parsed = JSON.parse(raw) as User
+      // Ensure profileCompletion matches verified items
+      if (parsed.verifications && parsed.verifications.length > 0) {
+        const verifiedCount = parsed.verifications.filter((v) => v.verified).length
+        parsed.profileCompletion = Math.round((verifiedCount / parsed.verifications.length) * 100)
+      }
+      return parsed
+    } catch {
+      return null
+    }
   })
 
   useEffect(() => {
@@ -52,7 +69,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       id: 'demo-user-1',
       name,
       email,
-      profileCompletion: 40,
+      profileCompletion: 25,
       verifications: [
         { label: 'Aadhaar Verified', verified: false },
         { label: 'Mobile Verified', verified: false },
@@ -64,8 +81,50 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => setUser(null)
 
+  const updateVerification: AuthContextValue['updateVerification'] = (label, verified, docDetails) => {
+    setUser((prev) => {
+      if (!prev) return null
+      const updatedVerifications = prev.verifications.map((v) => {
+        if (v.label === label) {
+          return {
+            ...v,
+            verified,
+            docName: docDetails?.docName ?? (verified ? v.docName : undefined),
+            docData: docDetails?.docData ?? (verified ? v.docData : undefined),
+            docSize: docDetails?.docSize ?? (verified ? v.docSize : undefined),
+            uploadedAt: docDetails?.uploadedAt ?? (verified ? v.uploadedAt : undefined),
+            docNumber: docDetails?.docNumber ?? (verified ? v.docNumber : undefined),
+          }
+        }
+        return v
+      })
+      const profileCompletion = Math.round(
+        (updatedVerifications.filter((v) => v.verified).length / updatedVerifications.length) * 100
+      )
+      return {
+        ...prev,
+        verifications: updatedVerifications,
+        profileCompletion,
+      }
+    })
+  }
+
+  const updateUser: AuthContextValue['updateUser'] = (partial) => {
+    setUser((prev) => (prev ? { ...prev, ...partial } : null))
+  }
+
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated: !!user, login, register, logout }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        isAuthenticated: !!user,
+        login,
+        register,
+        logout,
+        updateVerification,
+        updateUser,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   )

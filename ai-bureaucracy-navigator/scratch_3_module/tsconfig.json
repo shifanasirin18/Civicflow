@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": false,
+    "skipLibCheck": true,
+    "typeRoots": [
+      "../ai-bureaucracy-navigator/frontend/node_modules/@types"
+    ]
+  },
+  "include": ["./**/*.ts", "./**/*.tsx"]
+}

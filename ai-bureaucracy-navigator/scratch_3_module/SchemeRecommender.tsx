@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { schemes } from "../data/seedData";
-import { EligibilityStatus, NavigatorActions, Scheme, SchemeAnswers } from "../types/government";
+import { schemes } from "./seedData";
+import { EligibilityStatus, NavigatorActions, Scheme, SchemeAnswers } from "./government";
 
 type Props = NavigatorActions & { onViewScheme?: (scheme: Scheme) => void };
 const labels: Record<EligibilityStatus, string> = { likely: "Likely eligible", possible: "May be eligible", unlikely: "Criteria may not be met" };
