@@ -33,13 +33,13 @@
 
 ```text
 CivicFlow/
-├── frontend/                     React 19 + TypeScript + Vite + Tailwind CSS v4 + Lucide Icons
+├── frontend/                     React 19 + JavaScript (JSX) + Vite + Tailwind CSS v4 + Lucide Icons
 │   ├── src/pages/                Landing, Assistant, Services, Roadmaps, Tracker, Scanner, etc.
 │   ├── src/components/           LifeEventWizard, SchemeRecommender, KnowledgeHub, UI Kit
 │   ├── src/context/              AuthContext, LanguageContext (EN/TA/HI), AppDataContext
 │   └── src/i18n/                 Multi-lingual dictionary (English, Tamil, Hindi)
 │
-└── backend/                      Node.js + Express + TypeScript + PostgreSQL
+└── backend/                      Node.js + Express + JavaScript (ES Modules) + PostgreSQL
     ├── src/routes/               /api/auth, /api/services, /api/applications, /api/documents, /api/chat
     ├── src/db/                   PostgreSQL connection pool, migrations (001_init.sql), seed data
     ├── src/rag/                  Intent classification & query scoring engine

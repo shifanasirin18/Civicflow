@@ -32,7 +32,7 @@ strings stay server-side (see `backend/.env.example`).
 
 ```
 ai-bureaucracy-navigator/
-├── frontend/                      React + TypeScript + Tailwind (Vite)
+├── frontend/                      React + JavaScript (JSX) + Tailwind (Vite)
 │   └── src/
 │       ├── pages/                 Landing, Login, Register, Dashboard,
 │       │                          AI Assistant, Services, Service Details,
@@ -42,22 +42,20 @@ ai-bureaucracy-navigator/
 │       │   ├── layout/            Sidebar, Header, AppShell
 │       │   └── ui/                Card, Badge, Button, ProgressBar
 │       ├── context/                Language, Auth, AppData (React context)
-│       ├── data/services.ts        Demo government-service knowledge base
-│       ├── i18n/translations.ts    EN/TA UI string dictionary
-│       ├── lib/mockAssistant.ts    Phase-1 mock RAG reply generator
-│       └── types/                  Shared TypeScript types
+│       ├── data/services.js        Demo government-service knowledge base
+│       ├── i18n/translations.js    EN/TA/HI UI string dictionary
+│       └── lib/mockAssistant.js    Phase-1 mock RAG reply generator
 │
-└── backend/                       Node.js + Express + TypeScript
+└── backend/                       Node.js + Express + JavaScript (ES Modules)
     └── src/
         ├── routes/                 auth, services, applications, documents, chat
         ├── middleware/              requireAuth (JWT), errorHandler
         ├── db/
-        │   ├── pool.ts              pg connection pool
+        │   ├── pool.js              pg connection pool
         │   └── migrations/001_init.sql   full Postgres schema
-        ├── rag/                    README.md (architecture) + classify.ts (Phase-1 mock)
-        ├── ocr/                    README.md (architecture) + ocrProvider.ts, fieldSchemas.ts
-        ├── data/seedServices.ts     Demo services (mirrors frontend, DB fallback)
-        └── types/                   Shared TypeScript types
+        ├── rag/                    README.md (architecture) + classify.js (Phase-1 mock)
+        ├── ocr/                    README.md (architecture) + ocrProvider.js, fieldSchemas.js
+        └── data/seedServices.js     Demo services (mirrors frontend, DB fallback)
 ```
 
 ## 3. Database schema
